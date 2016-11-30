@@ -1,4 +1,4 @@
-## All Strains
+## GET /strains/all
 
 > Example Request
 
@@ -67,8 +67,9 @@ curl_close($ch);
 ```
 
 ```shell
-curl -X "GET" "http://api.maryj.dev/strain/all" \
-  -H "Accept: application/vnd.maryj.v1"
+curl -X "GET" "/strains/all" \
+     -H "Token: torchli_" \
+     -H "Accept: application/vnd.torchli.v1"
 ```
 
 > The above command returns JSON structured like this:
@@ -81,24 +82,22 @@ curl -X "GET" "http://api.maryj.dev/strain/all" \
   "data": {
     "strains": [
       {
-        "id": 15,
-        "name": "Anesthesia",
-        "slug": "anesthesia",
-        "category": "Indica"
+        "name": "Gorilla Glue #4",
+        "slug": "gorilla-glue-4",
+        "category": "Hybrid"
       },
       {
-        "id": 16,
-        "name": "Animal Cookies",
-        "slug": "animal-cookies",
-        "category": "Hybrid"
+        "name": "Durban Poison",
+        "slug": "durban-poison",
+        "category": "Sativa"
       }
     ]
   }
 }
 ```
 
-This endpoint retrieves all strains.
+This endpoint retrieves all strains in the database.
 
 ### HTTP Request
 
-`GET http://api.maryj.io/strain/all`
+`GET /strains/all`
