@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Torchli API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,22 +86,23 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
-    <a href="#" id="nav-button">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button" target="_blank">
       <span>
-        NAV
-        <img src="images/navbar.png" />
+        <img src="images/logo_doc.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="php">PHP</a>
+              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -113,155 +112,280 @@
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>The Torchli API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (though you should remember that you should never expose your secret API key in any public website&rsquo;s client-side code). JSON will be returned in all responses from the API, including errors.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<h1 id="authentication">Authentication</h1>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+          <h2 id="making-requests">Making Requests</h2>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>API Endpoint</p>
 </blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="err">https://api.torchli.co/</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>All requests should supply the Accept: application/vnd.torchli.v1 header <code class="prettyprint">v1 - is the API version</code>. POST requests must have a JSON encoded body.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<p>Requests must be made over HTTPS. Any non-secure requests are met with a redirect (HTTP 302) to the HTTPS equivalent URI.</p>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+          <h2 id="pagination">Pagination</h2>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<blockquote>
+<p>Pagination Example</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_objects"</span><span class="p">:</span><span class="w"> </span><span class="mi">1498</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.maryj.dev/strain/all?page=1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.maryj.dev/strain/all?page=60"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.maryj.dev/strain/all?page=1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.maryj.dev/strain/all?page=3"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">...........</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Requests that return multiple results will be paginated to 25 items by default. You can use the page parameter to specify which page of data to retrieve. API responses return pre-built pagination links with rels first, prev, next and last and client applications are encouraged to follow these links for pagination.</p>
+
+          <h2 id="errors">Errors</h2>
+
+<p>Torchli uses conventional HTTP response codes to indicate success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g. a required parameter was missing, a missing strain, etc.), and codes in the 5xx range indicate an error with Torchli&rsquo;s servers.</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Error Code</th>
+<th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>200</td>
+<td>OK &ndash; Everything worked as expected.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>400</td>
+<td>Bad Request &ndash; Often missing a required parameter.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; No valid API key provided.</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Request Failed &ndash; Parameters were valid but request failed.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The requested item doesn&rsquo;t exist.</td>
+</tr>
+<tr>
+<td>500, 502, 503, 504</td>
+<td>Server Errors &ndash; Something went wrong on Torchli&rsquo;s end.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+          <h1 id="authentication">Authentication</h1>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>To authenticate against the Torchli API, you need an API access token.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<p>You can retrieve a token from one of your applications in the dashboard.</p>
+
+          <h1 id="strains">Strains:</h1>
+
+          <h2 id="get-strains-all">GET /strains/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="k">def</span> <span class="nf">send_request</span>
+  <span class="c1"># /strain/all (GET )</span>
+
+  <span class="k">begin</span>
+    <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'http://api.maryj.dev/strain/all'</span><span class="p">)</span>
+
+    <span class="c1"># Create client</span>
+    <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+
+
+    <span class="c1"># Create Request</span>
+    <span class="n">req</span> <span class="o">=</span>  <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+    <span class="c1"># Add headers</span>
+    <span class="n">req</span><span class="p">.</span><span class="nf">add_field</span> <span class="s2">"Accept"</span><span class="p">,</span> <span class="s2">"application/vnd.maryj.v1"</span>
+
+    <span class="c1"># Fetch Request</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"Response HTTP Status Code: </span><span class="si">#{</span><span class="n">res</span><span class="p">.</span><span class="nf">code</span><span class="si">}</span><span class="s2">"</span>
+    <span class="nb">puts</span> <span class="s2">"Response HTTP Response Body: </span><span class="si">#{</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">rescue</span> <span class="no">StandardError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="s2">"HTTP Request failed (</span><span class="si">#{</span><span class="n">e</span><span class="p">.</span><span class="nf">message</span><span class="si">}</span><span class="s2">)"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">// Get cURL resource
+</span><span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="c1">// Set url
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'http://api.maryj.dev/strain/all'</span><span class="p">);</span>
+
+<span class="c1">// Set method
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+
+<span class="c1">// Set options
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Set headers
+</span><span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s2">"Accept: application/vnd.maryj.v1"</span><span class="p">,</span>
+ <span class="p">]</span>
+<span class="p">);</span>
+
+
+<span class="c1">// Send the request &amp; save response to $resp
+</span><span class="nv">$resp</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$resp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">die</span><span class="p">(</span><span class="s1">'Error: "'</span> <span class="o">.</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$ch</span><span class="p">)</span> <span class="o">.</span> <span class="s1">'" - Code: '</span> <span class="o">.</span> <span class="nb">curl_errno</span><span class="p">(</span><span class="nv">$ch</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"Response HTTP Status Code : "</span> <span class="o">.</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLINFO_HTTP_CODE</span><span class="p">);</span>
+  <span class="k">echo</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Response HTTP Body : "</span> <span class="o">.</span> <span class="nv">$resp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Close request to clear up some resources
+</span><span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 </code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">...........</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gorilla Glue #4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gorilla-glue-4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hybrid"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Durban Poison"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"durban-poison"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves all strains in the database.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET /strains/all</code></p>
+
+          <h2 id="get-strains-slug">GET /strains/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Durban Poison"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"durban-poison"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sativa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"thc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.29%"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cbn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2%"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"cbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.94%"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"flavors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earthy"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"earthy"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"aromas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pine"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pine"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"effects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Happy"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"happy"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"symptoms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stress"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stress"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"negatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dry Mouth"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dry-mouth"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific strain.</p>
+
+<aside class="warning">
+If the strain cant by found a status code of 404 will be returned.
+</aside>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -272,66 +396,1370 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+          <h2 id="get-strains-slug-category">GET /strains/:slug/category</h2>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"http://localhost:3000/api/strains/durban-poison/category"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
 
-<p>The Kittn API uses the following error codes:</p>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sativa"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the category of a specific strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/category</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-levels">GET /strains/:slug/levels</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/levels"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"thc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.29%"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cbn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2%"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cbd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.94%"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the levels of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/levels</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-effects">GET /strains/:slug/effects</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/effects"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"effects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uplifted"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uplifted"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Energetic"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"energetic"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Happy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"happy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Euphoric"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"euphoric"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creative"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"creative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the effects of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/effects</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-symptoms">GET /strains/:slug/symptoms</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/symptoms"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"symptoms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stress"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stress"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Depression"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depression"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pain"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pain"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fatigue"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fatigue"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Headaches"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"headaches"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the symptoms of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/symptoms</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-flavors">GET /strains/:slug/flavors</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/flavors"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"flavors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earthy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"earthy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pine"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pine"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sweet"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the flavors of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/flavors</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-aromas">GET /strains/:slug/aromas</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/aromas"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"aromas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earthy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"earthy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pine"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pine"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pungent"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pungent"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spicy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spicy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sweet"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the aromas of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/aromas</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-strains-slug-negatives">GET /strains/:slug/negatives</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/negatives"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"negatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dry Mouth"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dry-mouth"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dry Eyes"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dry-eyes"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paranoid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paranoid"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anxious"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anxious"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Headache"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"headache"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the negatives of a given strain</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /strains/:slug/negatives</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Strain slug <code class="prettyprint">durban-poison</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="search-strains">Search Strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"http://api.maryj.dev/strain/search"</span> <span class="se">\</span>
+    -H <span class="s2">"Accept: application/vnd.maryj.v1"</span> <span class="se">\</span>
+    -d <span class="nv">$'</span><span class="o">{</span>
+          <span class="s2">"search"</span>: <span class="s2">"sour diesel"</span>,
+          <span class="s2">"category"</span>: <span class="o">[</span>
+            <span class="s2">"sativa"</span>
+          <span class="o">]</span>,
+          <span class="s2">"params"</span>: <span class="o">{</span>
+            <span class="s2">"flavors"</span>: <span class="o">[</span>
+              <span class="s2">"tropical"</span>
+            <span class="o">]</span>,
+            <span class="s2">"conditions"</span>: <span class="o">[</span>
+              <span class="s2">"anxiety"</span>
+            <span class="o">]</span>,
+            <span class="s2">"effects"</span>: <span class="o">[</span>
+              <span class="s2">"focused"</span>
+            <span class="o">]</span>,
+            <span class="s2">"symptoms"</span>: <span class="o">[</span>
+              <span class="s2">"stress"</span>
+            <span class="o">]</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"search"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aloha"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aloha"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">298</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffalo Bill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buffalo-bill"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Lantern"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"green-lantern"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawaiian Haze"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hawaiian-haze"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint searches all strains with the provided parameters.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.maryj.io/strain/search</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>search</td>
+<td>Search key <code class="prettyprint">diesel</code></td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>category</td>
+<td>What category to search in <code class="prettyprint">sativa</code>, <code class="prettyprint">indica</code>, <code class="prettyprint">hybrid</code></td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>definition</td>
+<td>Additional search parameters <code class="prettyprint">conditions</code>, <code class="prettyprint">effects</code>, <code class="prettyprint">flavor</code>, <code class="prettyprint">symptoms</code></td>
 </tr>
+</tbody></table>
+
+          <h1 id="categories">Categories</h1>
+
+          <h2 id="get-categories-all">GET /categories/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sativa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"indica"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hybrid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hybrid"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the categories in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /categories/all</code></p>
+
+          <h2 id="get-categories-slug">GET /categories/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/indica"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"indica"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a category</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /categories/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>slug</td>
+<td>Category slug <code class="prettyprint">indica</code></td>
 </tr>
+</tbody></table>
+
+          <h2 id="get-categories-slug-strains">GET /categories/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/indica/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purple-kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afghan Purple Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"afghan-purple-kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the strains from a category</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /categories/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>slug</td>
+<td>Category slug <code class="prettyprint">indica</code></td>
 </tr>
+</tbody></table>
+
+          <h1 id="effects">Effects:</h1>
+
+          <h2 id="get-effects-all">GET /effects/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"effects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Relaxed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relaxed"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sleepy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sleepy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Happy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"happy"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hungry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hungry"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Euphoric"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"euphoric"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tingly"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tingly"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Energetic"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"energetic"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the effects in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /effects/all</code></p>
+
+          <h2 id="get-effects-slug">GET /effects/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/relaxed"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Relaxed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relaxed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves an effect</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /effects/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
 <tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>slug</td>
+<td>Effect slug <code class="prettyprint">relaxed</code></td>
 </tr>
+</tbody></table>
+
+          <h2 id="get-effects-slug-strains">GET /effects/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/relaxed/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thai"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thai"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bubba Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bubba-kush"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alien OG"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alien-og"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the strains associated to an effect</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /effects/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
+</thead><tbody>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>slug</td>
+<td>Effect slug <code class="prettyprint">relaxed</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="symptoms">Symptoms:</h1>
+
+          <h2 id="get-symptoms-all">GET /symptoms/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"symptoms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insomnia"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insomnia"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Depression"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depression"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lack of Appetite"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lack-of-appetite"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the symptoms in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /symptoms/all</code></p>
+
+          <h2 id="get-symptoms-slug">GET /symptoms/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/stress"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"symptom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stress"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stress"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a symptom</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /symptoms/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Symptom slug <code class="prettyprint">stress</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-symptoms-slug-strains">GET /symptoms/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/stress/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purple-kush"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8 Ball Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8-ball-kush"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the strains from a symptom</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /symptoms/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Symptom slug <code class="prettyprint">stress</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="flavors">Flavors:</h1>
+
+          <h2 id="get-flavors-all">GET /flavors/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"flavors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sweet"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grape"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grape"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the flavors in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /flavors/all</code></p>
+
+          <h2 id="get-flavors-slug">GET /flavors/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/indica"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"flavor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grape"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grape"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a flavor</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /flavors/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Flavor slug <code class="prettyprint">grape</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-flavors-slug-strains">GET /flavors/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/grape/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Trainwreck"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purple-trainwreck"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kurple Fantasy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kurple-fantasy"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the strains from a flavor</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /flavors/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Flavor slug <code class="prettyprint">grape</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="aromas">Aromas:</h1>
+
+          <h2 id="get-aromas-all">GET /aromas/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"aromas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berries"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"berries"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Earthy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"earthy"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the aromas in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /aromas/all</code></p>
+
+          <h2 id="get-aromas-slug">GET /aromas/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/berries"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"aroma"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Berries"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"berries"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a category</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /aromas/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Aroma slug <code class="prettyprint">berries</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-aromas-slug-strains">GET /aromas/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/berries/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Trainwreck"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purple-trainwreck"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glass Slipper"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"glass-slipper"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the strains from a category</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /aromas/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Aroma slug <code class="prettyprint">berries</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="negatives">Negatives:</h1>
+
+          <h2 id="get-negatives-all">GET /negatives/all</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/all"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"negatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paranoid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paranoid"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Headache"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"headache"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the negatives in the database</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /negatives/all</code></p>
+
+          <h2 id="get-negatives-slug">GET /negatives/:slug</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/dry-eyes"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"negative"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dry Eyes"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dry-eyes"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a negative</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /negatives/:slug</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Negative slug <code class="prettyprint">dry-eyes</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="get-negatives-slug-strains">GET /negatives/:slug/strains</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/dry-eyes/strains"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"strains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afghani"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"afghani"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jedi Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jedi-kush"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves the strains from a negative</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /negatives/:slug/strains</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>slug</td>
+<td>Negative slug <code class="prettyprint">dry-eyes</code></td>
 </tr>
 </tbody></table>
 
@@ -340,7 +1768,8 @@ Remember — a happy kitten is an authenticated kitten!
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="php">PHP</a>
+                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
