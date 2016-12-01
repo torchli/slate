@@ -1,4 +1,4 @@
-## GET /negatives/all
+## POST /negatives/all
 
 > Example Request
 

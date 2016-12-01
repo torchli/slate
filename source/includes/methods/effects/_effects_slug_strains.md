@@ -1,4 +1,4 @@
-## GET /effects/:slug/strains
+## POST /effects/:slug/strains
 
 > Example Request
 

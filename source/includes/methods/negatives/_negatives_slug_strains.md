@@ -1,4 +1,4 @@
-## GET /negatives/:slug/strains
+## POST /negatives/:slug/strains
 
 > Example Request
 

@@ -1,4 +1,4 @@
-## GET /categories/all
+## POST /categories/all
 
 > Example Request
 

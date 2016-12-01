@@ -1,4 +1,4 @@
-## GET /symptoms/all
+## POST /symptoms/all
 
 > Example Request
 

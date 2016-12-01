@@ -1,4 +1,4 @@
-## GET /flavors/all
+## POST /flavors/all
 
 > Example Request
 

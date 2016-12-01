@@ -28,7 +28,9 @@ includes:
   - methods/strains/strains_slug_flavors
   - methods/strains/strains_slug_aromas
   - methods/strains/strains_slug_negatives
-  - methods/strains/search_strains
+
+  - methods/search/search
+  - methods/search/search_strains
 
   - methods/categories/categories
   - methods/categories/categories_all

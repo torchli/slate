@@ -1,4 +1,4 @@
-## GET /effects/all
+## POST /effects/all
 
 > Example Request
 

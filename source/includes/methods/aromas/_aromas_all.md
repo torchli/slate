@@ -1,4 +1,4 @@
-## GET /aromas/all
+## POST /aromas/all
 
 > Example Request
 

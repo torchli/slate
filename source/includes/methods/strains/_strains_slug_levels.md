@@ -1,4 +1,4 @@
-## GET /strains/:slug/levels
+## POST /strains/:slug/levels
 
 > Example Request
 

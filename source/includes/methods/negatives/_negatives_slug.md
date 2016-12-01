@@ -1,4 +1,4 @@
-## GET /negatives/:slug
+## POST /negatives/:slug
 
 > Example Request
 

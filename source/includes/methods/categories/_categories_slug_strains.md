@@ -1,4 +1,4 @@
-## GET /categories/:slug/strains
+## POST /categories/:slug/strains
 
 > Example Request
 

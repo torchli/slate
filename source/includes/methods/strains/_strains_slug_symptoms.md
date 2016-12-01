@@ -1,4 +1,4 @@
-## GET /strains/:slug/symptoms
+## POST /strains/:slug/symptoms
 
 > Example Request
 

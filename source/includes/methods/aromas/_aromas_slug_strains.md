@@ -1,4 +1,4 @@
-## GET /aromas/:slug/strains
+## POST /aromas/:slug/strains
 
 > Example Request
 

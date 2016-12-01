@@ -1,4 +1,4 @@
-## GET /flavors/:slug
+## POST /flavors/:slug
 
 > Example Request
 

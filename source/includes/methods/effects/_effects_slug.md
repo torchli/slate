@@ -1,4 +1,4 @@
-## GET /effects/:slug
+## POST /effects/:slug
 
 > Example Request
 
