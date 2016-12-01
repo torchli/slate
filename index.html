@@ -212,7 +212,7 @@
 
           <h1 id="strains">Strains:</h1>
 
-          <h2 id="get-strains-all">GET /strains/all</h2>
+          <h2 id="post-strains-all">POST /strains/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -312,7 +312,7 @@
 
 <p><code class="prettyprint">GET /strains/all</code></p>
 
-          <h2 id="get-strains-slug">GET /strains/:slug</h2>
+          <h2 id="post-strains-slug">POST /strains/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -401,7 +401,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-category">GET /strains/:slug/category</h2>
+          <h2 id="post-strains-slug-category">POST /strains/:slug/category</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -447,7 +447,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-levels">GET /strains/:slug/levels</h2>
+          <h2 id="post-strains-slug-levels">POST /strains/:slug/levels</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -494,7 +494,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-effects">GET /strains/:slug/effects</h2>
+          <h2 id="post-strains-slug-effects">POST /strains/:slug/effects</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -558,7 +558,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-symptoms">GET /strains/:slug/symptoms</h2>
+          <h2 id="post-strains-slug-symptoms">POST /strains/:slug/symptoms</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -622,7 +622,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-flavors">GET /strains/:slug/flavors</h2>
+          <h2 id="post-strains-slug-flavors">POST /strains/:slug/flavors</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -678,7 +678,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-aromas">GET /strains/:slug/aromas</h2>
+          <h2 id="post-strains-slug-aromas">POST /strains/:slug/aromas</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -742,7 +742,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-strains-slug-negatives">GET /strains/:slug/negatives</h2>
+          <h2 id="post-strains-slug-negatives">POST /strains/:slug/negatives</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -806,33 +806,24 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="search-strains">Search Strains</h2>
+          <h1 id="search">Search:</h1>
+
+          <h2 id="post-strains-search">POST /strains/search</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"http://api.maryj.dev/strain/search"</span> <span class="se">\</span>
-    -H <span class="s2">"Accept: application/vnd.maryj.v1"</span> <span class="se">\</span>
-    -d <span class="nv">$'</span><span class="o">{</span>
-          <span class="s2">"search"</span>: <span class="s2">"sour diesel"</span>,
-          <span class="s2">"category"</span>: <span class="o">[</span>
-            <span class="s2">"sativa"</span>
-          <span class="o">]</span>,
-          <span class="s2">"params"</span>: <span class="o">{</span>
-            <span class="s2">"flavors"</span>: <span class="o">[</span>
-              <span class="s2">"tropical"</span>
-            <span class="o">]</span>,
-            <span class="s2">"conditions"</span>: <span class="o">[</span>
-              <span class="s2">"anxiety"</span>
-            <span class="o">]</span>,
-            <span class="s2">"effects"</span>: <span class="o">[</span>
-              <span class="s2">"focused"</span>
-            <span class="o">]</span>,
-            <span class="s2">"symptoms"</span>: <span class="o">[</span>
-              <span class="s2">"stress"</span>
-            <span class="o">]</span>
-          <span class="o">}</span>
-        <span class="o">}</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/search"</span> <span class="se">\</span>
+     -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
+     -H <span class="s2">"Accept: application/vnd.torchli.v1"</span> <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span> <span class="se">\</span>
+     -d <span class="s2">"{
+          'keyword': 'berry',
+          'categories': [
+            'indica'
+          ]
+        }"</span>
+
 </code></pre>
 
 <blockquote>
@@ -840,32 +831,32 @@ If the strain cant by found a status code of 404 will be returned.
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"search"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aloha"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aloha"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blackberry Kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blackberry-kush"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple Berry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purple-berry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indica"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Very Berry Haze"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"very-berry-haze"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">298</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffalo Bill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buffalo-bill"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">650</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Lantern"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"green-lantern"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">678</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawaiian Haze"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hawaiian-haze"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawaiian Snow"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hawaiian-snow"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sativa"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -877,7 +868,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://api.maryj.io/strain/search</code></p>
+<p><code class="prettyprint">POST /strains/search</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -888,22 +879,38 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </thead><tbody>
 <tr>
-<td>search</td>
-<td>Search key <code class="prettyprint">diesel</code></td>
+<td>keyword</td>
+<td>Search key <code class="prettyprint">berry</code></td>
 </tr>
 <tr>
-<td>category</td>
-<td>What category to search in <code class="prettyprint">sativa</code>, <code class="prettyprint">indica</code>, <code class="prettyprint">hybrid</code></td>
+<td>categories</td>
+<td>array* What categories to search in</td>
 </tr>
 <tr>
-<td>definition</td>
-<td>Additional search parameters <code class="prettyprint">conditions</code>, <code class="prettyprint">effects</code>, <code class="prettyprint">flavor</code>, <code class="prettyprint">symptoms</code></td>
+<td>effects</td>
+<td>array* What effects to search in</td>
+</tr>
+<tr>
+<td>flavors</td>
+<td>array* What flavors to search in</td>
+</tr>
+<tr>
+<td>aromas</td>
+<td>array* What aromas to search in</td>
+</tr>
+<tr>
+<td>symptoms</td>
+<td>array* What symptoms to search in</td>
+</tr>
+<tr>
+<td>negatives</td>
+<td>array* What symptoms to search in</td>
 </tr>
 </tbody></table>
 
           <h1 id="categories">Categories</h1>
 
-          <h2 id="get-categories-all">GET /categories/all</h2>
+          <h2 id="post-categories-all">POST /categories/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -945,7 +952,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /categories/all</code></p>
 
-          <h2 id="get-categories-slug">GET /categories/:slug</h2>
+          <h2 id="post-categories-slug">POST /categories/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -991,7 +998,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-categories-slug-strains">GET /categories/:slug/strains</h2>
+          <h2 id="post-categories-slug-strains">POST /categories/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1047,7 +1054,7 @@ If the strain cant by found a status code of 404 will be returned.
 
           <h1 id="effects">Effects:</h1>
 
-          <h2 id="get-effects-all">GET /effects/all</h2>
+          <h2 id="post-effects-all">POST /effects/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1105,7 +1112,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /effects/all</code></p>
 
-          <h2 id="get-effects-slug">GET /effects/:slug</h2>
+          <h2 id="post-effects-slug">POST /effects/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1151,7 +1158,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-effects-slug-strains">GET /effects/:slug/strains</h2>
+          <h2 id="post-effects-slug-strains">POST /effects/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1209,7 +1216,7 @@ If the strain cant by found a status code of 404 will be returned.
 
           <h1 id="symptoms">Symptoms:</h1>
 
-          <h2 id="get-symptoms-all">GET /symptoms/all</h2>
+          <h2 id="post-symptoms-all">POST /symptoms/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1251,7 +1258,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /symptoms/all</code></p>
 
-          <h2 id="get-symptoms-slug">GET /symptoms/:slug</h2>
+          <h2 id="post-symptoms-slug">POST /symptoms/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1297,7 +1304,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-symptoms-slug-strains">GET /symptoms/:slug/strains</h2>
+          <h2 id="post-symptoms-slug-strains">POST /symptoms/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1351,7 +1358,7 @@ If the strain cant by found a status code of 404 will be returned.
 
           <h1 id="flavors">Flavors:</h1>
 
-          <h2 id="get-flavors-all">GET /flavors/all</h2>
+          <h2 id="post-flavors-all">POST /flavors/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1389,7 +1396,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /flavors/all</code></p>
 
-          <h2 id="get-flavors-slug">GET /flavors/:slug</h2>
+          <h2 id="post-flavors-slug">POST /flavors/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1435,7 +1442,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-flavors-slug-strains">GET /flavors/:slug/strains</h2>
+          <h2 id="post-flavors-slug-strains">POST /flavors/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1489,7 +1496,7 @@ If the strain cant by found a status code of 404 will be returned.
 
           <h1 id="aromas">Aromas:</h1>
 
-          <h2 id="get-aromas-all">GET /aromas/all</h2>
+          <h2 id="post-aromas-all">POST /aromas/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1527,7 +1534,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /aromas/all</code></p>
 
-          <h2 id="get-aromas-slug">GET /aromas/:slug</h2>
+          <h2 id="post-aromas-slug">POST /aromas/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1573,7 +1580,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-aromas-slug-strains">GET /aromas/:slug/strains</h2>
+          <h2 id="post-aromas-slug-strains">POST /aromas/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1627,7 +1634,7 @@ If the strain cant by found a status code of 404 will be returned.
 
           <h1 id="negatives">Negatives:</h1>
 
-          <h2 id="get-negatives-all">GET /negatives/all</h2>
+          <h2 id="post-negatives-all">POST /negatives/all</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1665,7 +1672,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <p><code class="prettyprint">GET /negatives/all</code></p>
 
-          <h2 id="get-negatives-slug">GET /negatives/:slug</h2>
+          <h2 id="post-negatives-slug">POST /negatives/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
@@ -1711,7 +1718,7 @@ If the strain cant by found a status code of 404 will be returned.
 </tr>
 </tbody></table>
 
-          <h2 id="get-negatives-slug-strains">GET /negatives/:slug/strains</h2>
+          <h2 id="post-negatives-slug-strains">POST /negatives/:slug/strains</h2>
 
 <blockquote>
 <p>Example Request</p>
