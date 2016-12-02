@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/categories/indica" \
+curl -X "POST" "/categories/indica" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -28,7 +28,7 @@ This endpoint retrieves a category
 
 ### HTTP Request
 
-`GET /categories/:slug`
+`POST /categories/:slug`
 
 ### URL Parameters
 

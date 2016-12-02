@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/negatives/all" \
+curl -X "POST" "/negatives/all" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -34,4 +34,4 @@ This endpoint retrieves all the negatives in the database
 
 ### HTTP Request
 
-`GET /negatives/all`
+`POST /negatives/all`

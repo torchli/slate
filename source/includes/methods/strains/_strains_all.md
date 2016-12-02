@@ -67,7 +67,7 @@ curl_close($ch);
 ```
 
 ```shell
-curl -X "GET" "/strains/all" \
+curl -X "POST" "/strains/all" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -100,4 +100,4 @@ This endpoint retrieves all strains in the database.
 
 ### HTTP Request
 
-`GET /strains/all`
+`POST /strains/all`

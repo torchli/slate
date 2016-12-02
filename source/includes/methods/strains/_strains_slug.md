@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/strains/durban-poison" \
+curl -X "POST" "/strains/durban-poison" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -71,7 +71,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 ### HTTP Request
 
-`GET /strains/:slug`
+`POST /strains/:slug`
 
 ### URL Parameters
 

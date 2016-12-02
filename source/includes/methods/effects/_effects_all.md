@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/effects/all" \
+curl -X "POST" "/effects/all" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -54,4 +54,4 @@ This endpoint retrieves all the effects in the database
 
 ### HTTP Request
 
-`GET /effects/all`
+`POST /effects/all`

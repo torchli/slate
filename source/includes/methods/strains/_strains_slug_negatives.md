@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/strains/durban-poison/negatives" \
+curl -X "POST" "/strains/durban-poison/negatives" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -46,7 +46,7 @@ This endpoint retrieves the negatives of a given strain
 
 ### HTTP Request
 
-`GET /strains/:slug/negatives`
+`POST /strains/:slug/negatives`
 
 ### URL Parameters
 

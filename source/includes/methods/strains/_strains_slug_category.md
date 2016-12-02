@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "http://localhost:3000/api/strains/durban-poison/category" \
+curl -X "POST" "http://localhost:3000/api/strains/durban-poison/category" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -28,7 +28,7 @@ This endpoint retrieves the category of a specific strain
 
 ### HTTP Request
 
-`GET /strains/:slug/category`
+`POST /strains/:slug/category`
 
 ### URL Parameters
 

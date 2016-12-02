@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/symptoms/all" \
+curl -X "POST" "/symptoms/all" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -38,4 +38,4 @@ This endpoint retrieves all the symptoms in the database
 
 ### HTTP Request
 
-`GET /symptoms/all`
+`POST /symptoms/all`

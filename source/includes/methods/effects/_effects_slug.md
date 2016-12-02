@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/effects/relaxed" \
+curl -X "POST" "/effects/relaxed" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -28,7 +28,7 @@ This endpoint retrieves an effect
 
 ### HTTP Request
 
-`GET /effects/:slug`
+`POST /effects/:slug`
 
 ### URL Parameters
 

@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/categories/all" \
+curl -X "POST" "/categories/all" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -38,4 +38,4 @@ This endpoint retrieves all the categories in the database
 
 ### HTTP Request
 
-`GET /categories/all`
+`POST /categories/all`

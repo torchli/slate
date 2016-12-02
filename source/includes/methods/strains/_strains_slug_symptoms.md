@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/strains/durban-poison/symptoms" \
+curl -X "POST" "/strains/durban-poison/symptoms" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -46,7 +46,7 @@ This endpoint retrieves the symptoms of a given strain
 
 ### HTTP Request
 
-`GET /strains/:slug/symptoms`
+`POST /strains/:slug/symptoms`
 
 ### URL Parameters
 

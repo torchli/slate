@@ -3,7 +3,7 @@
 > Example Request
 
 ```shell
-curl -X "GET" "/effects/relaxed/strains" \
+curl -X "POST" "/effects/relaxed/strains" \
      -H "Token: torchli_" \
      -H "Accept: application/vnd.torchli.v1"
 ```
@@ -38,7 +38,7 @@ This endpoint retrieves all the strains associated to an effect
 
 ### HTTP Request
 
-`GET /effects/:slug/strains`
+`POST /effects/:slug/strains`
 
 ### URL Parameters
 
