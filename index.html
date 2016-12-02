@@ -277,7 +277,7 @@
 <span class="c1">// Close request to clear up some resources
 </span><span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -310,14 +310,14 @@
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/all</code></p>
+<p><code class="prettyprint">POST /strains/all</code></p>
 
           <h2 id="post-strains-slug">POST /strains/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -385,7 +385,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug</code></p>
+<p><code class="prettyprint">POST /strains/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -406,7 +406,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"http://localhost:3000/api/strains/durban-poison/category"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"http://localhost:3000/api/strains/durban-poison/category"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -431,7 +431,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/category</code></p>
+<p><code class="prettyprint">POST /strains/:slug/category</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -452,7 +452,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/levels"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/levels"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -478,7 +478,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/levels</code></p>
+<p><code class="prettyprint">POST /strains/:slug/levels</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -499,7 +499,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/effects"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/effects"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -542,7 +542,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/effects</code></p>
+<p><code class="prettyprint">POST /strains/:slug/effects</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -563,7 +563,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/symptoms"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/symptoms"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -606,7 +606,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/symptoms</code></p>
+<p><code class="prettyprint">POST /strains/:slug/symptoms</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -627,7 +627,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/flavors"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/flavors"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -662,7 +662,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/flavors</code></p>
+<p><code class="prettyprint">POST /strains/:slug/flavors</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -683,7 +683,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/aromas"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/aromas"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -726,7 +726,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/aromas</code></p>
+<p><code class="prettyprint">POST /strains/:slug/aromas</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -747,7 +747,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/strains/durban-poison/negatives"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/strains/durban-poison/negatives"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -790,7 +790,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /strains/:slug/negatives</code></p>
+<p><code class="prettyprint">POST /strains/:slug/negatives</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -915,7 +915,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/categories/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -950,14 +950,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /categories/all</code></p>
+<p><code class="prettyprint">POST /categories/all</code></p>
 
           <h2 id="post-categories-slug">POST /categories/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/indica"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/categories/indica"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -982,7 +982,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /categories/:slug</code></p>
+<p><code class="prettyprint">POST /categories/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1003,7 +1003,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/categories/indica/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/categories/indica/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1036,7 +1036,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /categories/:slug/strains</code></p>
+<p><code class="prettyprint">POST /categories/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1059,7 +1059,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/effects/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1110,14 +1110,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /effects/all</code></p>
+<p><code class="prettyprint">POST /effects/all</code></p>
 
           <h2 id="post-effects-slug">POST /effects/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/relaxed"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/effects/relaxed"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1142,7 +1142,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /effects/:slug</code></p>
+<p><code class="prettyprint">POST /effects/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1163,7 +1163,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/effects/relaxed/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/effects/relaxed/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1198,7 +1198,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /effects/:slug/strains</code></p>
+<p><code class="prettyprint">POST /effects/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1221,7 +1221,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/symptoms/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1256,14 +1256,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /symptoms/all</code></p>
+<p><code class="prettyprint">POST /symptoms/all</code></p>
 
           <h2 id="post-symptoms-slug">POST /symptoms/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/stress"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/symptoms/stress"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1288,7 +1288,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /symptoms/:slug</code></p>
+<p><code class="prettyprint">POST /symptoms/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1309,7 +1309,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/symptoms/stress/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/symptoms/stress/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1340,7 +1340,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /symptoms/:slug/strains</code></p>
+<p><code class="prettyprint">POST /symptoms/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1363,7 +1363,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/flavors/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1394,14 +1394,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /flavors/all</code></p>
+<p><code class="prettyprint">POST /flavors/all</code></p>
 
           <h2 id="post-flavors-slug">POST /flavors/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/indica"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/flavors/indica"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1426,7 +1426,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /flavors/:slug</code></p>
+<p><code class="prettyprint">POST /flavors/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1447,7 +1447,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/flavors/grape/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/flavors/grape/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1478,7 +1478,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /flavors/:slug/strains</code></p>
+<p><code class="prettyprint">POST /flavors/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1501,7 +1501,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/aromas/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1532,14 +1532,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /aromas/all</code></p>
+<p><code class="prettyprint">POST /aromas/all</code></p>
 
           <h2 id="post-aromas-slug">POST /aromas/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/berries"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/aromas/berries"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1564,7 +1564,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /aromas/:slug</code></p>
+<p><code class="prettyprint">POST /aromas/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1585,7 +1585,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/aromas/berries/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/aromas/berries/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1616,7 +1616,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /aromas/:slug/strains</code></p>
+<p><code class="prettyprint">POST /aromas/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1639,7 +1639,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/all"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/negatives/all"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1670,14 +1670,14 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /negatives/all</code></p>
+<p><code class="prettyprint">POST /negatives/all</code></p>
 
           <h2 id="post-negatives-slug">POST /negatives/:slug</h2>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/dry-eyes"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/negatives/dry-eyes"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1702,7 +1702,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /negatives/:slug</code></p>
+<p><code class="prettyprint">POST /negatives/:slug</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1723,7 +1723,7 @@ If the strain cant by found a status code of 404 will be returned.
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X <span class="s2">"GET"</span> <span class="s2">"/negatives/dry-eyes/strains"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -X <span class="s2">"POST"</span> <span class="s2">"/negatives/dry-eyes/strains"</span> <span class="se">\</span>
      -H <span class="s2">"Token: torchli_"</span> <span class="se">\</span>
      -H <span class="s2">"Accept: application/vnd.torchli.v1"</span>
 </code></pre>
@@ -1754,7 +1754,7 @@ If the strain cant by found a status code of 404 will be returned.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /negatives/:slug/strains</code></p>
+<p><code class="prettyprint">POST /negatives/:slug/strains</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
